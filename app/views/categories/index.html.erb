@@ -1,0 +1,9 @@
+<% if @categories.any? %>
+  <% @categories.each do |category| %>
+    <%= category.name %>
+    <%= link_to category.name, categories_path(category) %>
+  <% end %>
+<% else %>
+  NO CATS
+  <%= link_to "Create Category", new_categories_path %>
+<% end %>

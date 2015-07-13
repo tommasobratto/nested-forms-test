@@ -1,0 +1,2 @@
+module CategoryOrganisationsHelper
+end

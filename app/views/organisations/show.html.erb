@@ -1,0 +1,7 @@
+<% if !@organisation.nil? %>
+  <%= @organisation.name %>
+  <% if @organisation.categories.any? %>
+    <% @organisation.categories.each |cat| %>
+      <%= cat.name %>
+    <% end %>
+<% end %>

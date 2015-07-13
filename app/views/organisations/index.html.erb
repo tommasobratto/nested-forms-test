@@ -1,0 +1,10 @@
+<% if @organisations.any? %>
+  <% @organisations.each do |org| %>
+    <%= org.name %>
+    <%= link_to org.name, organisations_path(org) %>
+  <% end %>
+  <%= link_to "Create Organisation", new_organisations_path %>
+<% else %>
+  NO ORGS
+  <%= link_to "Create Organisation", new_organisations_path %>
+<% end %>

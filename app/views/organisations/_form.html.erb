@@ -1,0 +1,16 @@
+<%= form_for @organisation do |f| %>
+  <div class="org-name">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit "Create" %>
+  </div>
+  <div class="org-cat-name">
+    <%= f.fields_for :categories, f.object.categories.name do |cat_f| %>
+      <li>
+        <%= cat_f %>
+        <%= cat_f.check_box :_destroy %>
+        <%= cat_f.submit "Category in organisation" %>
+      </li>
+    <% end %>
+  </div>
+<% end %>
