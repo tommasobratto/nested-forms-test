@@ -1,7 +1,9 @@
 <% if @organisations.any? %>
   <% @organisations.each do |org| %>
+  <div class="org">
     <%= org.name %>
     <%= link_to org.name, organisations_path(org) %>
+  </div>
   <% end %>
   <%= link_to "Create Organisation", new_organisations_path %>
 <% else %>

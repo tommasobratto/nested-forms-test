@@ -1,16 +1,13 @@
+<h3>Organisation form</h3>
 <%= form_for @organisation do |f| %>
-  <div class="org-name">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.submit "Create" %>
-  </div>
-  <div class="org-cat-name">
-    <%= f.fields_for :categories, f.object.categories.name do |cat_f| %>
-      <li>
-        <%= cat_f %>
-        <%= cat_f.check_box :_destroy %>
-        <%= cat_f.submit "Category in organisation" %>
-      </li>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <h4>Categories</h4>
+    <%= f.fields_for :categories, Category.all do |category| %>
+      <%= render partial: "category_fields", :locals => {:f => category} %>
+      <div class="add-cat">
+        <%= link_to_add_association 'Add Category', f, :categories %>
+      </div>
     <% end %>
-  </div>
+  <%= f.submit "Submit Organisation" %>
 <% end %>
