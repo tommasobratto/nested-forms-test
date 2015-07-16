@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # get 'categories' => 'category#index' 
   get 'organisations' => 'organisations#index'
   get 'categories' => 'categories#index'
+  get '/organisations/new', to: 'organisations#new', as: 'new_organisations'
+  get '/organisations/:id', to: 'organisations#show', as: 'organisation'
 
   resource :organisations
   resource :categories

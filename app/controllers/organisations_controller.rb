@@ -6,20 +6,20 @@ class OrganisationsController < ApplicationController
 
   def new 
     @organisation = Organisation.new
-    @organisation.categories.build
   end
 
   def create
-    @organisations = Organisation.create(org_params)
+    @organisation = Organisation.create(org_params)
 
     redirect_to organisations_path
   end
 
   def show
     @organisation = Organisation.find(params[:id])
+    p @organisation.categories[0].name
   end
 
   def org_params
-    params.require(:organisation).permit(:name)
+    params.require(:organisation).permit(:name, categories_attributes: [:_destroy, :category_id])
   end
 end

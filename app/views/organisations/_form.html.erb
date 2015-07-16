@@ -5,9 +5,6 @@
   <h4>Categories</h4>
     <%= f.fields_for :categories, Category.all do |category| %>
       <%= render partial: "category_fields", :locals => {:f => category} %>
-      <div class="add-cat">
-        <%= link_to_add_association 'Add Category', f, :categories %>
-      </div>
     <% end %>
   <%= f.submit "Submit Organisation" %>
 <% end %>
